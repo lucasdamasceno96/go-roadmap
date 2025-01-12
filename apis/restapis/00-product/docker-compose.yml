@@ -1,9 +1,7 @@
-version: "3.9"
-
 services:
-  go_db
+  go_db:
     container_name: go_db
-    image: postgres:12
+    image: postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
@@ -12,5 +10,6 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+
 volumes:
-  pgdata: {}
+  pgdata:
