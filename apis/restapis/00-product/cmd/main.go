@@ -9,6 +9,10 @@ import (
 
 func main() {
 	server := gin.Default()
+	dbConnection, err := db.ConnectDB()
+	if err != nil {
+		panic(err)
+	}
 
 	ProductUsecase := usecase.NewProductUsecase()
 	ProductController := controller.NewProductController(ProductUsecase)
